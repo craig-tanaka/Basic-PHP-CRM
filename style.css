@@ -1,0 +1,35 @@
+body{
+        margin: 0;
+        color: rgb(65, 65, 65);
+        background-color: rgb(239, 239, 239);
+}
+nav,
+main{
+        width: 60%;
+        padding: 0 20%;
+}
+
+
+nav{
+    display: flex;
+    background-color: rgb(225, 225, 225);
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-button{
+        cursor: pointer;
+        background-color: rgb(204, 204, 204);
+        color: white;
+        padding: 5px 15px;
+        border: none;
+        border-radius: 5px;
+}
+
+
+main{
+        margin-top: 3rem;
+}
+
+.form-row{
+        margin-bottom: 1rem;
+}
