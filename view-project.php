@@ -33,7 +33,7 @@
                 <?php
                         $id = $_GET['id'];
                         $where['id'] = '=' . $id;
-                        $project = $database->getRow('projects_customers_view', '*', $where );
+                        $project = $database->getRow('projects_view', '*', $where );
                 ?>
 
                 <div class="form-row">

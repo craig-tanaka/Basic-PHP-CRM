@@ -40,7 +40,7 @@
                         </thead>
                         <tbody>
                                 <?php
-                                        $projects = $database->getRows('projects_customers_view');
+                                        $projects = $database->getRows('projects_view');
                                         $count = 0;
 
                                         foreach($projects as $project){

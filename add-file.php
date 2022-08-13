@@ -32,7 +32,7 @@
                 </header>
                 <?php
                         if  ( isset( $_GET['project'] ) ) $id = $_GET['project'];
-                        $projects = $database->getRows( 'projects_customers_view' );
+                        $projects = $database->getRows( 'projects_view' );
                 ?>
 
                 <form action="process.php?action=addfile" method="post" enctype="multipart/form-data">
