@@ -63,6 +63,17 @@
                 $database->removeRows('projects', $where );
                 header('Location: index.php');
                 break;
+        case 'addfile':
+                // Add File to Files table
+                $data = array(
+                        "filename" => $_FILES['project_file']['name'],
+                        "project" => $_POST['id']
+                );
+                
+                $database->insertRows('files', $data);
+                header('Location: index.php');
+                
+                break;
     }
 
 ?>

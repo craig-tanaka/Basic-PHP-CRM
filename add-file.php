@@ -35,7 +35,7 @@
                         $projects = $database->getRows( 'projects_customers_view' );
                 ?>
 
-                <form action="process.php?action=createcustomer" method="post">
+                <form action="process.php?action=addfile" method="post" enctype="multipart/form-data">
                         <div class="form-row">
                                 <label>Project :</label>
                                 <select>
@@ -48,8 +48,9 @@
                                 </select>
                         </div>
                         <div class="form-row">
+                                <input type="hidden" name="id" value="<?php echo $id ?>">
                                 <label>Add File :</label>
-                                <input type="file">
+                                <input type="file" id="file" name="project_file">
                         </div>
                         <div class=form-row>
                                 <input type="submit">

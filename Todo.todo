@@ -1,0 +1,2 @@
+- Add javascipt to AddFile page that changes project id in hidden form input and in page url when user changes project in select. Either that or remove option to change Select when on AddFile page.
+- check foreign keys and views in database
