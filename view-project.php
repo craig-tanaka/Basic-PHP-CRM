@@ -31,9 +31,18 @@
                         <h2 class="page-title">Viewing Project</h2>
                 </header>
                 <?php
+                        // Gets Project data from Projects table
                         $id = $_GET['id'];
                         $where['id'] = '=' . $id;
-                        $project = $database->getRow('projects_view', '*', $where );
+                        $project = $database->getRow('projects', '*', $where );
+
+                        // Gets project's customer data from Customers table
+                        $customer_where['id'] = '=' . $project['customer'];
+                        $customer = $database->getRow('customers', '*', $customer_where);
+
+                        // Gets Project's file data from Files table
+                        $file_where['project'] = '=' . $id;
+                        $file = $database->getRow('files', '*', $file_where);
                 ?>
 
                 <div class="form-row">
@@ -58,17 +67,17 @@
                 </div>
                 <div class="form-row">
                         <span>Customer :</span>
-                        <span><?php echo $project['email_address'] ?></span>
+                        <span><?php echo $customer['email_address'] ?></span>
                 </div>
                 <div class="form-row">
                         <span>Project File :</span>
                         <span>
                                 <?php
-                                        $file = $project['file'];
-                                        if ( is_null( $file ) ) {
+                                        if ( empty( $file ) ) {
                                                 echo '<em>No File Found</em>';
                                                 echo '<a href="./add-file.php?project=' . $project['id']  . '">Add File</a>';
                                         } else {
+                                                echo $file['filename'];
                                         }
                                 ?>
                         </span>
