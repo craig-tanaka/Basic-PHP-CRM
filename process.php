@@ -64,12 +64,16 @@
                 header('Location: index.php');
                 break;
         case 'addfile':
-                // Add File to Files table
+                // Checks if file input is empty
+                if( $_FILES['project_file']['error'] !== 0 ) {
+                        header( 'Location: add-file.php?project=' . $_POST['id'] );
+                        break;
+                }
+
                 $data = array(
                         "filename" => $_FILES['project_file']['name'],
                         "project" => $_POST['id']
                 );
-                
                 $database->insertRows('files', $data);
                 header('Location: index.php');
                 
