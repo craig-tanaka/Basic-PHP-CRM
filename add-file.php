@@ -32,20 +32,16 @@
                 </header>
                 <?php
                         if  ( isset( $_GET['project'] ) ) $id = $_GET['project'];
-                        $projects = $database->getRows( 'projects_view' );
+                        $where['id'] = '=' . $id;
+                        $project = $database->getRow( 'projects', '*', $where);
                 ?>
 
                 <form action="process.php?action=addfile" method="post" enctype="multipart/form-data">
                         <div class="form-row">
-                                <label>Project :</label>
-                                <select>
-                                        <?php foreach ( $projects as $project ){
-                                                if (isset($id) && $id == $project['id'])
-                                                        echo '<option value="' . $project['id'] .'"selected>' . $project['name'] . '</option>';
-                                                else
-                                                        echo '<option value="' . $project['id'] .'">' . $project['name'] . '</option>';
-                                        } ?>
-                                </select>
+                                <label>
+                                        Project :
+                                        <?php echo $project['name'] ?>
+                                </label>
                         </div>
                         <div class="form-row">
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
