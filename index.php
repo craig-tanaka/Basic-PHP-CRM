@@ -45,33 +45,33 @@
                         </thead>
                         <tbody>
                                 <?php
-                                        $projects = $database->getRows('projects_view');
+                                        $projects = $database->getRows('projects_customers_view');
                                         $count = 0;
 
                                         foreach($projects as $project){
                                                 $count++;?>
-                                        <tr>
-                                                <td><?php echo $count ?></td>
-                                                <td><?php echo $project['name'] ?></td>
-                                                <td><?php echo $project['email_address'] ?></td>
-                                                <td><?php echo $project['created_at'] ?></td>
-                                                <td>
-                                                        <a href="./view-project.php?id=<?php echo $project['id'] ?>">
-                                                                View
-                                                        </a>
-                                                </td>
-                                                <td>
-                                                        <a href="./edit-project.php?id=<?php echo $project['id'] ?>">
-                                                                Edit
-                                                        </a>
-                                                </td>
-                                                <td>
-                                                        <a class="table-link delete"
-                                                                href="./process.php?action=deleteproject&id=<?php echo $project['id'] ?>">
-                                                                Delete
-                                                        </a>
-                                                </td>
-                                        </tr>
+                                <tr>
+                                        <td><?php echo $count ?></td>
+                                        <td><?php echo $project['name'] ?></td>
+                                        <td><?php echo $project['email_address'] ?></td>
+                                        <td><?php echo $project['created_at'] ?></td>
+                                        <td>
+                                                <a href="./view-project.php?id=<?php echo $project['id'] ?>">
+                                                        View
+                                                </a>
+                                        </td>
+                                        <td>
+                                                <a href="./edit-project.php?id=<?php echo $project['id'] ?>">
+                                                        Edit
+                                                </a>
+                                        </td>
+                                        <td>
+                                                <a class="table-link delete"
+                                                        href="./process.php?action=deleteproject&id=<?php echo $project['id'] ?>">
+                                                        Delete
+                                                </a>
+                                        </td>
+                                </tr>
                                 <?php } ?>
                         </tbody>
                 </table>
