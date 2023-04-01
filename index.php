@@ -20,7 +20,7 @@
                 <div class="nav-far-right-cont">
                         <a href="#">Projects</a>
                         <a href="./customers.php">Customers</a>
-                        <a href="#">Files</a>
+                        <a href="./files.php">Files</a>
                 </div>
         </nav>
 
@@ -28,10 +28,12 @@
 
                 <header>
                         <h2 class="page-title">All Projects</h2>
-                        <a href="./create-project.php" class="header-add-button">
-                                <button>+</button>
-                                Create a Project
-                        </a>
+                        <span>
+                                <a href="./create-project.php" class="header-add-button">+</a>
+                                <span id='header-add-button-text'>
+                                        Create a Project
+                                </span>
+                        </span>
                 </header>
 
                 <table>
@@ -55,17 +57,17 @@
                                         <td><?php echo $project['name'] ?></td>
                                         <td><?php echo $project['email_address'] ?></td>
                                         <td><?php echo $project['created_at'] ?></td>
-                                        <td>
+                                        <td class="table-link">
                                                 <a href="./view-project.php?id=<?php echo $project['id'] ?>">
                                                         View
                                                 </a>
                                         </td>
-                                        <td>
+                                        <td class="table-link">
                                                 <a href="./edit-project.php?id=<?php echo $project['id'] ?>">
                                                         Edit
                                                 </a>
                                         </td>
-                                        <td>
+                                        <td class="table-link">
                                                 <a class="table-link delete"
                                                         href="./process.php?action=deleteproject&id=<?php echo $project['id'] ?>">
                                                         Delete

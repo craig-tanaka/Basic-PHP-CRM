@@ -20,7 +20,7 @@
                 <div class="nav-far-right-cont">
                         <a href="./index.php">Projects</a>
                         <a href="./customers.php">Customers</a>
-                        <a href="">Files</a>
+                        <a href="./files.php">Files</a>
                 </div>
         </nav>
 
@@ -57,10 +57,10 @@
                         <span><?php echo $customer['phone_number'] ?></span>
                 </div>
                 <div>
-                        <a href="./edit-customer.php?id=<?php echo $customer['id'] ?>">
+                        <a class="view-link" href="./edit-customer.php?id=<?php echo $customer['id'] ?>">
                                 Edit
                         </a>
-                        <a href="./process.php?action=deletecustomer&id=<?php echo $customer['id']?>">
+                        <a class="view-link" href="./process.php?action=deletecustomer&id=<?php echo $customer['id']?>">
                                 Delete
                         </a>
                 </div>

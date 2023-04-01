@@ -21,7 +21,7 @@
                 <div class="nav-far-right-cont">
                         <a href="./index.php">Projects</a>
                         <a href="./customers.php">Customers</a>
-                        <a href="">Files</a>
+                        <a href="./files.php">Files</a>
                 </div>
         </nav>
 
@@ -78,15 +78,17 @@
                                                 echo '<a href="./add-file.php?project=' . $project['id']  . '">Add File</a>';
                                         } else {
                                                 echo $file['filename'];
+                                                        echo '<a class="view-link" download=' . str_replace(" ", "_", $file['filename']) . ' href="./process.php?action=viewfile&id=' . $file['id'] . '">View File</a>';
+                                                        echo '<a class="view-link" href="./process.php?action=deletefile&id=' . $file['id'] .'&prev=edit-project&pid=' . $project['id'] . '">Remove File</a>';
                                         }
                                 ?>
                         </span>
                 </div>
                 <div>
-                        <a href="./edit-project.php?id=<?php echo $project['id'] ?>">
+                        <a class="view-link" href="./edit-project.php?id=<?php echo $project['id'] ?>">
                                 Edit
                         </a>
-                        <a class="table-link delete"
+                        <a class="view-link table-link delete"
                                 href="./process.php?action=deleteproject&id=<?php echo $project['id'] ?>">
                                 Delete
                         </a>

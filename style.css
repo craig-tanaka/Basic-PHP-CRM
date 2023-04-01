@@ -1,7 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Raleway:wght@100&display=swap');
+
+*{
+        font-family: 'Raleway', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,
+th{
+        font-family: 'Nunito', sans-serif;
+        font-weight: 400;
+}
+
 body{
         margin: 0;
-        color: rgb(65, 65, 65);
+        /* color: rgb(65, 65, 65); */
+        color: white;
         background-color: rgb(239, 239, 239);
+        background-image: url('./prism.png');
 }
 nav,
 main{
@@ -9,10 +23,16 @@ main{
         padding: 0 20%;
 }
 
+a{
+        color: white;
+        text-decoration: none;
+}
+
 
 nav{
     display: flex;
-    background-color: rgb(225, 225, 225);
+    background-color: rgba(225, 225, 225, 0.044);
+    box-shadow: 1px 1px 3px 0 black;
     align-items: center;
     justify-content: space-between;
 }
@@ -30,6 +50,102 @@ main{
         margin-top: 3rem;
 }
 
+header{
+        display: flex;
+        align-items: center;
+}
+header span{
+        display: flex;
+        align-items: center;
+}
+
+.page-title{
+        margin-right: .5rem;
+}
+
+.header-add-button{
+        background-color: rgba(9, 23, 81, 0.34);
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px 0 black;
+        padding: 0.75rem 1rem;
+        margin: 10px;
+}
+.header-add-button:active{
+        box-shadow: inset 1px 1px 3px 0 black;
+}
+#header-add-button-text{
+        opacity: 0;
+}
+
+.header-add-button:hover + #header-add-button-text{
+        opacity: 1;
+        transition: opacity 2s;
+}
+
+table{
+        box-shadow: 1px 1px 3px 0 black;
+}
+
+thead{
+        box-shadow: 1px 0px 5px 0 rgba(0, 0, 0, 0.541);
+}
+
 .form-row{
         margin-bottom: 1rem;
+}
+
+tbody tr:nth-of-type(odd){
+        background-color: rgba(225, 225, 225, 0.044);
+}
+
+th, td{
+        padding: 0.75rem 0.5rem;
+        width: max-content      ;
+}
+
+td.table-link{
+
+}
+
+td.table-link a,
+.view-link{
+        font-family: 'Nunito', sans-serif;
+}
+td.table-link a:hover,
+.view-link:hover{
+        text-decoration: underline;
+}
+
+input,
+select{
+        background-color: rgba(0, 0, 0, 0.374);
+        color: white;
+        padding: 0.5rem;
+        font-family: 'Raleway', sans-serif;
+}
+option{
+        background-color: rgba(0, 0, 0, 0.741);
+        color: white;
+}
+input:focus{
+        outline: 1px white solid;
+}
+input[type="submit"]{
+        font-family: 'Nunito', sans-serif;
+        background-color: rgba(9, 23, 81, 0.34);
+        border-radius: 5px;
+        box-shadow: 1px 1px 3px 0 black;
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        border: none;
+}
+input[type="submit"]:hover{
+        text-decoration: underline;
+}
+.form-row > span:first-of-type{
+        font-family: 'Nunito', sans-serif;
+}
+
+.view-link:first-of-type{
+        margin-right: 5px;
 }

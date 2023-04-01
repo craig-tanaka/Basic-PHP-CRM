@@ -16,12 +16,12 @@
                 <div class="nav-far-right-cont">
                         <a href="./index.php">Projects</a>
                         <a href="./customers.php">Customers</a>
-                        <a href="">Files</a>
+                        <a href="./files.php">Files</a>
                 </div>
         </nav>
 
         <main>
-                
+
                 <header>
                         <h2 class="page-title">Add a Customer</h2>
                 </header>

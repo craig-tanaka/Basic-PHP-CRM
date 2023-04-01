@@ -64,6 +64,7 @@
                 header('Location: index.php');
                 break;
         case 'addfile':
+
                 // Checks if file input is empty
                 if( $_FILES['project_file']['error'] !== 0 ) {
                         header( 'Location: add-file.php?project=' . $_POST['id'] );
@@ -72,12 +73,28 @@
 
                 $data = array(
                         "filename" => $_FILES['project_file']['name'],
-                        "project" => $_POST['id']
+                        "project" => strip_tags($_POST['project']),
+                        "file" => file_get_contents($_FILES['project_file']['tmp_name'])
                 );
                 $database->insertRows('files', $data);
+
                 header('Location: index.php');
                 
                 break;
+        case 'deletefile':
+                $where['id'] = '=' . $_GET['id'];
+                $database->removeRows('files', $where );
+
+                $loc = $_GET['prev'] . '.php?id=' . $_GET['pid'];
+                header('Location: ' . $loc);
+                break;
+        case 'viewfile':
+
+                $where['id'] = '=' . $_GET['id'];
+                $file = $database->getRow('files', '*', $where);
+                
+                header('Content-type: application/msword');
+                echo $file['file'];
     }
 
 ?>

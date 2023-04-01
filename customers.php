@@ -20,17 +20,19 @@
                 <div class="nav-far-right-cont">
                         <a href="./index.php">Projects</a>
                         <a href="#">Customers</a>
-                        <a href="">Files</a>
+                        <a href="./files.php">Files</a>
                 </div>
         </nav>
 
         <main>
                 <header>
                         <h2 class="page-title">All Customers</h2>
-                        <a href="./create-customer.php" class="header-add-button">
-                                <button>+</button>
-                                Add a Customer
-                        </a>
+                        <span>
+                                <a href="./create-customer.php" class="header-add-button">+</a>
+                                <span id='header-add-button-text'>
+                                        Add a Customer
+                                </span>
+                        </span>
                 </header>
 
                 <table>
@@ -47,26 +49,27 @@
                                         $count = 1;
 
                                         foreach($customers as $customer){?>
-                                        <tr>
-                                                <td><?php echo $count ?></td>
-                                                <td><?php echo $customer['name'] ?></td>
-                                                <td><?php echo $customer['email_address'] ?></td>
-                                                <td>
-                                                        <a href="./view-customer.php?id=<?php echo $customer['id']?>">
-                                                                View
-                                                        </a>
-                                                </td>
-                                                <td>
-                                                        <a href="./edit-customer.php?id=<?php echo $customer['id']?>">
-                                                                Edit
-                                                        </a>
-                                                </td>
-                                                <td>
-                                                        <a href="./process.php?action=deletecustomer&id=<?php echo $customer['id']?>">
-                                                                Delete
-                                                        </a>
-                                                </td>
-                                        </tr>
+                                <tr>
+                                        <td><?php echo $count ?></td>
+                                        <td><?php echo $customer['name'] ?></td>
+                                        <td><?php echo $customer['email_address'] ?></td>
+                                        <td class="table-link">
+                                                <a href="./view-customer.php?id=<?php echo $customer['id']?>">
+                                                        View
+                                                </a>
+                                        </td>
+                                        <td class="table-link">
+                                                <a href="./edit-customer.php?id=<?php echo $customer['id']?>">
+                                                        Edit
+                                                </a>
+                                        </td>
+                                        <td class="table-link">
+                                                <a
+                                                        href="./process.php?action=deletecustomer&id=<?php echo $customer['id']?>">
+                                                        Delete
+                                                </a>
+                                        </td>
+                                </tr>
                                 <?php $count++; } ?>
                         </tbody>
                 </table>

@@ -21,7 +21,7 @@
                 <div class="nav-far-right-cont">
                         <a href="./index.php">Projects</a>
                         <a href="./customers.php">Customers</a>
-                        <a href="">Files</a>
+                        <a href="./files.php">Files</a>
                 </div>
         </nav>
 
@@ -32,16 +32,28 @@
                 </header>
                 <?php
                         if  ( isset( $_GET['project'] ) ) $id = $_GET['project'];
-                        $where['id'] = '=' . $id;
-                        $project = $database->getRow( 'projects', '*', $where);
+                        $projects = $database->getRows('projects');
                 ?>
 
                 <form action="process.php?action=addfile" method="post" enctype="multipart/form-data">
                         <div class="form-row">
-                                <label>
-                                        Project :
-                                        <?php echo $project['name'] ?>
-                                </label>
+                                <label>Project: </label>
+                                <select name="project">
+                                        <?php
+                                                foreach( $projects as $project ){
+                                        ?>
+                                        <option value="<?php echo $project['id'] ?>" <?php 
+                                                if ( isset( $id ) && $id == $project['id'] ) {
+                                                        echo 'selected';
+                                                }
+                                         ?>>
+                                                <?php echo $project['name'] ?>
+                                        </option>
+                                        <?php
+                                                }
+                                        ?>
+                                </select>
+
                         </div>
                         <div class="form-row">
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
